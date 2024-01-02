@@ -1,0 +1,13 @@
+name: ravendb
+providers:
+  - docker
+services:
+  - type: docker
+    name: ravendb
+    dockerfile: |
+      FROM ravendb/ravendb:ubuntu-latest
+    docker_run_cmd: docker run --rm -d -p 8080:8080 ravendb/ravendb:ubuntu-latest
+    instance_count: 1
+    http_port: 8080
+    health_check:
+      port: 8080
